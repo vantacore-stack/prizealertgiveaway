@@ -39,10 +39,11 @@
     .box{background:var(--card);padding:28px;border-radius:var(--radius);margin-bottom:32px;box-shadow:var(--shadow);border:1px solid #333}
     #stickyFooter{position:fixed;bottom:0;left:0;right:0;background:var(--card);padding:10px;text-align:center;border-top:1px solid #333;z-index:999}
     .close{position:absolute;top:5px;right:10px;background:none;border:none;color:#aaa;font-size:1rem;cursor:pointer}
+    .floatingAd{position:fixed;top:80px;right:10px;width:160px;z-index:998;background:var(--card);padding:8px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #333}
     @media(max-width:600px){h1{font-size:1.6rem}}
   </style>
 </head>
-<body oncontextmenu="return false" onkeydown="if(k==123)return false;">
+<body oncontextmenu="return false">
 
 <!-- ========== PAGE 1 : LANDING ========== -->
 <div id="page1" class="page">
@@ -62,6 +63,7 @@
       <button class="btn" onclick="pop1()">🔥 I’m Feeling Lucky</button>
       <button class="btn" onclick="pop2()">💎 Instant Access</button>
       <button class="btn" onclick="pop3()">🚪 Secret Door</button>
+      <div id="extraLandingAd"></div>
     </div>
   </div>
 </div>
@@ -76,6 +78,7 @@
       <button class="btn" onclick="pop5()">⚡ Verify & Continue</button>
       <button class="btn" onclick="pop6()">🎲 Roll the Dice</button>
       <div id="step1Ad"></div>
+      <div id="extraStep1Ad"></div>
       <br>
       <a class="btn" href="#" onclick="nextPage(3);return false">➡️ Continue to Step 2</a>
     </div>
@@ -92,6 +95,7 @@
       <button class="btn" onclick="pop8()">🎨 Pick Color</button>
       <button class="btn" onclick="pop9()">🎵 Play Sound</button>
       <div id="step2Ad"></div>
+      <div id="extraStep2Ad"></div>
       <br>
       <a class="btn" href="#" onclick="nextPage(4);return false">➡️ Continue to Step 3</a>
     </div>
@@ -108,6 +112,7 @@
       <button class="btn" onclick="pop11()">🚀 Fast Track</button>
       <button class="btn" onclick="pop12()">🎯 Lucky Spin</button>
       <div id="step3Ad"></div>
+      <div id="extraStep3Ad"></div>
       <br>
       <a class="btn" href="#" onclick="finish();return false">✅ Finish & See Result</a>
     </div>
@@ -126,6 +131,7 @@
       <button class="btn" onclick="pop14()">💰 Extra $50</button>
       <button class="btn" onclick="pop15()">🏆 VIP List</button>
       <div id="bonusAd"></div>
+      <div id="extraBonusAd"></div>
     </div>
   </div>
 </div>
@@ -134,6 +140,11 @@
 <div id="stickyFooter">
   <button class="close" onclick="this.parentElement.style.display='none'">✖</button>
   <div id="stickyAd"></div>
+</div>
+
+<!-- ========== FLOATING AD ========== -->
+<div class="floatingAd">
+  <div id="floatingAd"></div>
 </div>
 
 <!-- ========== 25 ZONEID TERBARU + TARGETED ========== -->
@@ -160,10 +171,16 @@
 <script>aclib.runAutoTag({zoneId:'otacyp4jov',target:'#step3Ad'});</script>
 <script>aclib.runAutoTag({zoneId:'rfcic9bpte',target:'#bonusAd'});</script>
 <script>aclib.runAutoTag({zoneId:'ebgduh7coa',target:'#stickyAd'});</script>
+<script>aclib.runAutoTag({zoneId:'loiuy9prr9',target:'#extraLandingAd'});</script>
+<script>aclib.runAutoTag({zoneId:'g9dqlyjmtu',target:'#extraStep1Ad'});</script>
+<script>aclib.runAutoTag({zoneId:'a8gv52ybop',target:'#extraStep2Ad'});</script>
+<script>aclib.runAutoTag({zoneId:'z3xchqb3iw',target:'#extraStep3Ad'});</script>
+<script>aclib.runAutoTag({zoneId:'hknzimaixi',target:'#extraBonusAd'});</script>
+<script>aclib.runAutoTag({zoneId:'emuxaq15h4',target:'#floatingAd'});</script>
 
-<!-- ========== POP UNDER FUNCTIONS (SAMARAN) ========== -->
+<!-- ========== POP UNDER FUNCTIONS + BRUTAL ========== -->
 <script>
-  const SUBID = 'YOUR_REAL_SUBID_HERE'; // ganti dengan click-id asli
+  const SUBID = 'YOUR_REAL_SUBID_HERE';
   const BONUSID = 'YOUR_BONUS_SUBID_HERE';
 
   function nextPage(n){
@@ -184,25 +201,25 @@
     gtag('event','share_bonus',{event_category:'share'});
   }
 
-  /* 15 SAMARAN POP-UNDER BUTTONS */
-  function pop1(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop1`,'_blank'); }
-  function pop2(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop2`,'_blank'); }
-  function pop3(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop3`,'_blank'); }
-  function pop4(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop4`,'_blank'); }
-  function pop5(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop5`,'_blank'); }
-  function pop6(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop6`,'_blank'); }
-  function pop7(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop7`,'_blank'); }
-  function pop8(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop8`,'_blank'); }
-  function pop9(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop9`,'_blank'); }
-  function pop10(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop10`,'_blank'); }
-  function pop11(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop11`,'_blank'); }
-  function pop12(){ window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop12`,'_blank'); }
-  function pop13(){ window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop13`,'_blank'); }
-  function pop14(){ window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop14`,'_blank'); }
-  function pop15(){ window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop15`,'_blank'); }
+  function pop1(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop1`,'_blank');}
+  function pop2(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop2`,'_blank');}
+  function pop3(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop3`,'_blank');}
+  function pop4(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop4`,'_blank');}
+  function pop5(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop5`,'_blank');}
+  function pop6(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop6`,'_blank');}
+  function pop7(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop7`,'_blank');}
+  function pop8(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop8`,'_blank');}
+  function pop9(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop9`,'_blank');}
+  function pop10(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop10`,'_blank');}
+  function pop11(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop11`,'_blank');}
+  function pop12(){window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=pop12`,'_blank');}
+  function pop13(){window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop13`,'_blank');}
+  function pop14(){window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop14`,'_blank');}
+  function pop15(){window.open(`https://www.adcash.com/redirect?clickid=${BONUSID}&sub2=pop15`,'_blank');}
 
-  /* BRUTAL: auto-pop setiap 15 detik */
-  setInterval(()=>aclib.runAutoTag({zoneId:'9kvc2xelmc'}),15000);
+  // brutal: auto pop + auto iklan
+  setInterval(()=>aclib.runAutoTag({zoneId:'9kvc2xelmc'}),10000);
+  setInterval(()=>window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=auto`,'_blank'),20000);
 </script>
 
 </body>
