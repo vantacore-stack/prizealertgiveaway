@@ -41,6 +41,10 @@
     .close{position:absolute;top:5px;right:10px;background:none;border:none;color:#aaa;font-size:1rem;cursor:pointer}
     .floatingAd{position:fixed;top:80px;right:10px;width:160px;z-index:998;background:var(--card);padding:8px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #333}
     @media(max-width:600px){h1{font-size:1.6rem}}
+    /* BRUTAL MONET STYLES */
+    #topBar{position:fixed;top:0;left:0;right:0;height:50px;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #333;}
+    #interModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;}
+    #nativeGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:20px;}
   </style>
 </head>
 <body oncontextmenu="return false">
@@ -64,6 +68,7 @@
       <button class="btn" onclick="pop2()">💎 Instant Access</button>
       <button class="btn" onclick="pop3()">🚪 Secret Door</button>
       <div id="extraLandingAd"></div>
+      <div id="nativeGrid"></div>
     </div>
   </div>
 </div>
@@ -147,7 +152,7 @@
   <div id="floatingAd"></div>
 </div>
 
-<!-- ========== 25 ZONEID TERBARU + TARGETED ========== -->
+<!-- ========== 25 ZONEID + TARGETED ========== -->
 <script>aclib.runAutoTag({zoneId:'9kvc2xelmc'});</script>
 <script>aclib.runAutoTag({zoneId:'yjvmobxtme'});</script>
 <script>aclib.runAutoTag({zoneId:'j404lm0prv'});</script>
@@ -164,7 +169,7 @@
 <script>aclib.runAutoTag({zoneId:'6ovdeuvebu'});</script>
 <script>aclib.runAutoTag({zoneId:'3bt1ykyqzy'});</script>
 <script>aclib.runAutoTag({zoneId:'3gr7fgayqm'});</script>
-<!-- targeted slots -->
+<!-- targeted -->
 <script>aclib.runAutoTag({zoneId:'9kvc2xelmc',target:'#aboveUnlockAd'});</script>
 <script>aclib.runAutoTag({zoneId:'yjvmobxtme',target:'#step1Ad'});</script>
 <script>aclib.runAutoTag({zoneId:'j404lm0prv',target:'#step2Ad'});</script>
@@ -178,10 +183,10 @@
 <script>aclib.runAutoTag({zoneId:'hknzimaixi',target:'#extraBonusAd'});</script>
 <script>aclib.runAutoTag({zoneId:'emuxaq15h4',target:'#floatingAd'});</script>
 
-<!-- ========== POP UNDER FUNCTIONS + BRUTAL ========== -->
+<!-- ========== POP UNDER + BRUTAL ========== -->
 <script>
-  const SUBID = 'YOUR_REAL_SUBID_HERE';
-  const BONUSID = 'YOUR_BONUS_SUBID_HERE';
+  const SUBID   = '8';  // Sub-ID kamu
+  const BONUSID = '8';  // bisa sama
 
   function nextPage(n){
     gtag('event','page_'+n,{event_category:'navigation'});
@@ -220,6 +225,64 @@
   // brutal: auto pop + auto iklan
   setInterval(()=>aclib.runAutoTag({zoneId:'9kvc2xelmc'}),10000);
   setInterval(()=>window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=auto`,'_blank'),20000);
+</script>
+
+<!-- ========== BRUTAL MONET LAYOUT ========== -->
+<!-- Sticky Top Bar -->
+<div id="topBar" style="position:fixed;top:0;left:0;right:0;height:50px;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #333;">
+  <div id="topBarAd"></div>
+  <button onclick="document.getElementById('topBar').style.display='none'" style="margin-left:10px;background:none;border:none;color:#aaa;font-size:16px;cursor:pointer;">✖</button>
+</div>
+<script>aclib.runAutoTag({zoneId:'qztggthhqz',target:'#topBarAd'});</script>
+
+<!-- Interstitial Modal -->
+<div id="interModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:99999;align-items:center;justify-content:center;">
+  <div style="background:#111;padding:20px;border-radius:12px;text-align:center;max-width:90%;border:1px solid #333;">
+    <h3 style="color:var(--gold);">🎁 Sponsored</h3>
+    <div id="interAd"></div>
+    <br>
+    <button class="btn" onclick="document.getElementById('interModal').style.display='none'">Close</button>
+  </div>
+</div>
+<script>aclib.runAutoTag({zoneId:'6ovdeuvebu',target:'#interAd'});</script>
+
+<!-- Native Grid -->
+<script>
+  for(let i=0;i<6;i++){
+    let d=document.createElement('div');
+    d.id='native'+i;
+    d.style.background='#1a1a1a';d.style.padding='10px';d.style.border='1px solid #333';d.style.borderRadius='8px';
+    document.getElementById('nativeGrid').appendChild(d);
+    aclib.runAutoTag({zoneId:'3bt1ykyqzy',target:'#native'+i});
+  }
+</script>
+
+<!-- Exit Intent -->
+<script>
+  document.addEventListener('mouseleave',e=>{
+    if(e.clientY<0){
+      window.open(`https://www.adcash.com/redirect?clickid=${SUBID}&sub2=exit`,'_blank');
+    }
+  });
+</script>
+
+<!-- Auto Interstitial Timer -->
+<script>
+  setInterval(()=>{
+    document.getElementById('interModal').style.display='flex';
+  },15000);
+</script>
+
+<!-- Wrap all btn onclick dengan interstitial -->
+<script>
+  const allBtns = document.querySelectorAll('.btn');
+  allBtns.forEach(btn=>{
+    const original = btn.onclick;
+    btn.onclick = function(e){
+      document.getElementById('interModal').style.display='flex';
+      if(original) original.call(this,e);
+    };
+  });
 </script>
 
 </body>
